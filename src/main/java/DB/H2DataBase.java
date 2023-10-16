@@ -15,7 +15,7 @@ public class H2DataBase {
             connection = DriverManager.getConnection(connectionURL);
         } catch (SQLException ex) {
             System.out.println(String.format("Sql expection.Cannot create connection, reason %s",ex.getSQLState()));
-            throw new RuntimeException("Cannot create connection.")
+            throw new RuntimeException("Cannot create connection.");
         }
     }
     public static H2DataBase getInstance() {
@@ -25,4 +25,5 @@ public class H2DataBase {
     public static Connection getConnection() {
         return  connection;
     }
+
 }
