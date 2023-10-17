@@ -1,5 +1,7 @@
 package DB;
 
+import props.PropertyReader;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.Connection;
@@ -8,9 +10,12 @@ import java.sql.Statement;
 
 public class DatabaseInitService {
     public static void main(String[] args) {
-
+        initDB();
+    }
+    public static void initDB() {
         String path = "src/main/resources/sql/init_db.sql";
         try (FileReader reader = new FileReader(path);
+             //FileReader reader = new FileReader(PropertyReader.getPopulateSql());
              // Wrap the FileReader in a BufferedReader for
              // efficient reading.
              BufferedReader bufferedReader = new BufferedReader(reader);
@@ -61,6 +66,5 @@ public class DatabaseInitService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
